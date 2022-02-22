@@ -2,14 +2,14 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Main from './components/Main';
 import styled from 'styled-components';
-import background from './images/cloudsBackground.jpg'
+import background from './images/clouds.jpg'
 
 const Styles = styled.div`
+font-family: 'Roboto', sans-serif;
 height: 100vh;
 background-image: url(${background});
 background-position: center;
 background-size: cover;
-
 `
 const App = () => {
   const [data, setData] = useState({});
@@ -19,10 +19,8 @@ const App = () => {
       .then(respo => respo.json()).then((response) => setData(response));
   }
   useEffect(() => {
-
     download();
   }, [])
-  console.log(data)
 
   return (
     <Styles className="App">

@@ -1,10 +1,15 @@
 import React from 'react'
+import styled from 'styled-components';
 
-const Navbar = (props) => {
-  const {data} = props;
-  console.log(data)
+const Styles = styled.div`
+font-size: 2.5em;
+`;
+const Navbar = () => {
+
   return (
-    <div>Navbar {data.humidity}</div>
+    <Styles>
+      <h1>Forecast</h1>
+    </Styles>
   )
 }
 
