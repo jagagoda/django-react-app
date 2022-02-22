@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <Styles>
-      <h1>Forecast</h1>
+      <h1>ForecastApp</h1>
     </Styles>
   )
 }

@@ -8,8 +8,9 @@ const Styles = styled.div`
 font-family: 'Roboto', sans-serif;
 height: 100vh;
 background-image: url(${background});
-background-position: center;
+background-position: top;
 background-size: cover;
+background-repeat: no-repeat;
 `
 const App = () => {
   const [data, setData] = useState({});

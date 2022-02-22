@@ -9,6 +9,7 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 height: 100vh;
+padding-top: 25px;
 `;
 const Main = (props) => {
 const {data, download} = props;
