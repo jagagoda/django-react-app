@@ -1,14 +1,11 @@
 import React from 'react'
-import styled from 'styled-components';
+import { Styles } from './Styles'
 
-const Styles = styled.div`
-font-size: 2.5em;
-`;
 const Navbar = () => {
 
   return (
     <Styles>
-      <h1>ForecastApp</h1>
+      <h1>forecastApp</h1>
     </Styles>
   )
 }
