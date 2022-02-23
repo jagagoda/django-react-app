@@ -11,7 +11,7 @@ padding-top: 30px;
 export const ForecastCard = styled.div`
 padding-top: 15px;
 min-height: 450px;
- width: 850px;
+width: 850px;
 box-shadow: 10px 10px 10px black;
 background: linear-gradient(45deg, black, transparent);
 display: flex;

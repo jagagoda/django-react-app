@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
 import { SearchContainer, SearchInput, IconButton, SearchButton } from './Styles';
 
 const InputCity = (props) => {
+  const inputRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
     const { download } = props;
   const [weather, setWeather] = useState('');
@@ -12,6 +13,14 @@ const InputCity = (props) => {
   }
   const toggleSearch = () => {
     setIsActive(!isActive)
+    inputRef.current.focus();
+  }
+  const pressedKey = (e) => {
+    if(e.keyCode === 13) {
+      download(weather)
+      console.log('klik')
+    }
+    console.log('klik')
   }
 
   return (
@@ -27,16 +36,19 @@ const InputCity = (props) => {
       </IconButton>
       <SearchButton>
       {isActive ? (
-          <AiOutlineSearch size={18} />
+          <button  onClick={() => download(weather)}><AiOutlineSearch size={18} /></button>
+
       ) : (
         ''
       )}
         </SearchButton>
       <SearchInput
+        ref={inputRef}
+        onKeyDown={pressedKey}
         value={weather}
         onChange={searchWeather}
         placeholder="search for a city..."
-        onKeyPress={() => download(weather)}/>
+        />
 
     </SearchContainer>
   )

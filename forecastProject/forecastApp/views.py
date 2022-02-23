@@ -2,13 +2,13 @@ import urllib.request
 import json
 from django.http import JsonResponse
 from django.http import HttpResponse
+from forecastApp.models import Weather
 
 def index(request):
 
     if request.method == 'GET':
         city = request.GET.get('city', None)
-        # lon = request.GET.get('lon', None)
-        # lat = request.GET.get('lat', None)
+
 
         if not city:
             return HttpResponse(status=422)
@@ -28,9 +28,23 @@ def index(request):
             'main': str(list_of_data['weather'][0]['main']),
             'description': str(list_of_data['weather'][0]['description']),
             'icon': list_of_data['weather'][0]['icon'],
-            # 'name': str(list_of_data['city']['name']),
-            # 'rain': str(list_of_data['rain'])
+            'name': str(list_of_data['name']),
+            'wind': str(list_of_data['wind']['speed']),
+            'time': str(list_of_data['dt'])
         }
+
+        temperature = list_of_data['main']['temp'],
+
+        pressure = float(list_of_data['main']['pressure']),
+        humidity = float(list_of_data['main']['humidity']),
+        print(humidity)
+        description= str(list_of_data['weather'][0]['description']),
+        icon= list_of_data['weather'][0]['icon'],
+        name= str(list_of_data['name']),
+        wind= float(list_of_data['wind']['speed']),
+        time= float(list_of_data['dt'])
+        record = Weather.objects.create(temperature=temperature, pressure=pressure, humidity=humidity, icon=icon, description=description, name=name, wind=wind, time=time)
+        record.save()
 
     else:
         return HttpResponse(status=405)

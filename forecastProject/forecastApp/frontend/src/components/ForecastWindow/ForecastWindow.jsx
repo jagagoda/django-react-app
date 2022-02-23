@@ -3,6 +3,7 @@ import InputCity from '../InputCity/InputCity'
 import { ForecastContainer, ForecastCard, ForecastGrid, LeftGrid, RightGrid, GridItem, GridData, ItemContainer, CityName, NextButton, PreviousButton, ButtonContainer } from './Styles';
 import { GrNext, GrPrevious } from 'react-icons/gr'
 import WeatherData from '../WeatherData/WeatherData';
+import Bookmarks from '../Bookmarks/Bookmarks';
 
 
 const ForecastWindow = (props) => {
@@ -13,11 +14,12 @@ const ForecastWindow = (props) => {
   }
   return (
     <ForecastContainer>
+      <Bookmarks />
       <ForecastCard>
         <InputCity download={download} />
         <CityName>{data.name}</CityName>
         <ForecastGrid>
-          {data ?
+          {data.temp ?
             <>
               <LeftGrid>
                 <img className='weather-icon' src={`http://openweathermap.org/img/w/${data.icon}.png`}
@@ -28,6 +30,8 @@ const ForecastWindow = (props) => {
                 <WeatherData title='Humidity:' data={data.humidity} />
                 <WeatherData title='Temperature:' data={data.temp} />
                 <WeatherData title='Pressure:' data={data.pressure} />
+                <WeatherData title='Wind:' data={data.wind} />
+                <WeatherData title='Time:' data={data.time} />
               </RightGrid>
             </> : <>
               <div> What's the weather like today?</div>
