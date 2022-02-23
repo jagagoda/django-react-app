@@ -1,9 +1,10 @@
 import React from 'react'
 import { Styles } from './Styles'
 
-const SingleBookmark = () => {
+const SingleBookmark = (props) => {
+  const {name} = props;
   return (
-    <Styles>SingleBookmark</Styles>
+    <Styles>{name}</Styles>
   )
 }
 

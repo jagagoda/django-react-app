@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { AiOutlineSearch, AiOutlineClose } from 'react-icons/ai';
-import { SearchContainer, SearchInput, IconButton, SearchButton } from './Styles';
+import { SearchContainer, SearchInput, IconButton, SearchButton, ClickButton } from './Styles';
 
 const InputCity = (props) => {
   const inputRef = useRef(null);
@@ -34,9 +34,9 @@ const InputCity = (props) => {
           <AiOutlineSearch size={28} />
         )}
       </IconButton>
-      <SearchButton>
+      <SearchButton onClick={() => download(weather)}>
       {isActive ? (
-          <button  onClick={() => download(weather)}><AiOutlineSearch size={18} /></button>
+          <AiOutlineSearch  size={18} />
 
       ) : (
         ''

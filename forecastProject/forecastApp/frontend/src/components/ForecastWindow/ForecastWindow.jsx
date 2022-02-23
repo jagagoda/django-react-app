@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
 import InputCity from '../InputCity/InputCity'
-import { ForecastContainer, ForecastCard, ForecastGrid, LeftGrid, RightGrid, GridItem, GridData, ItemContainer, CityName, NextButton, PreviousButton, ButtonContainer } from './Styles';
+import { ForecastContainer, ForecastCard, ForecastGrid, LeftGrid, RightGrid, CityName, NextButton, PreviousButton, ButtonContainer, BeforeWeather } from './Styles';
 import { GrNext, GrPrevious } from 'react-icons/gr'
 import WeatherData from '../WeatherData/WeatherData';
 import Bookmarks from '../Bookmarks/Bookmarks';
-
+// import { utcToZonedTime } from 'date-fns-tz'
 
 const ForecastWindow = (props) => {
+
   const [isLoading, setIsLoading] = useState(false);
   const { download, data } = props;
+  const date = data.time;
+  console.log(date)
+  const warsDate = Date.parse(date)
+  console.log(warsDate)
+  // format(warsDate, 'yyyy-MM-dd HH:mm:ss zzz', { timeZone: 'Europe/Warsaw' })
   if (!data) {
     return null;
   }
@@ -17,10 +23,11 @@ const ForecastWindow = (props) => {
       <Bookmarks />
       <ForecastCard>
         <InputCity download={download} />
-        <CityName>{data.name}</CityName>
-        <ForecastGrid>
-          {data.temp ?
-            <>
+        {data.temp ?
+          <>
+            <CityName>{data.name}</CityName>
+            <h2>{data.time}</h2>
+            <ForecastGrid>
               <LeftGrid>
                 <img className='weather-icon' src={`http://openweathermap.org/img/w/${data.icon}.png`}
                   alt="weather img" />
@@ -31,12 +38,9 @@ const ForecastWindow = (props) => {
                 <WeatherData title='Temperature:' data={data.temp} />
                 <WeatherData title='Pressure:' data={data.pressure} />
                 <WeatherData title='Wind:' data={data.wind} />
-                <WeatherData title='Time:' data={data.time} />
               </RightGrid>
-            </> : <>
-              <div> What's the weather like today?</div>
-            </>}
-        </ForecastGrid>
+            </ForecastGrid>
+          </> : <BeforeWeather> What's the weather like today?</BeforeWeather>}
       </ForecastCard>
       <ButtonContainer>
         <PreviousButton><GrPrevious size={25} style={{ position: 'absolute', left: '-5%', top: '6px' }} />previous day</PreviousButton>

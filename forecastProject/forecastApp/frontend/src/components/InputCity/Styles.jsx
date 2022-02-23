@@ -35,8 +35,8 @@ text-align: left;
 
 export const IconButton = styled.button`
 position: relative;
-height: 46px;
-width: 46px;
+height: 40px;
+width: 40px;
 border: none;
 z-index: 1;
 cursor: pointer;
@@ -50,8 +50,8 @@ outline: none;
 `;
 export const SearchButton = styled.button`
 position: relative;
-height: 46px;
-width: 46px;
+height: 40px;
+width: 40px;
 border: none;
 z-index: 1;
 cursor: pointer;
@@ -62,5 +62,13 @@ outline: none;
   color: grey;
 
 }
+
+`;
+export const ClickButton = styled.button`
+background: transparent;
+border: none;
+outline: none;
+cursoir: pointer;
+padding: 5px;
 
 `;

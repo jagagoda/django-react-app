@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const ForecastContainer = styled.div`
 display: flex;
 justify-content: flex-start;
@@ -7,6 +8,7 @@ align-items: center;
 flex-direction: column;
 height: 100vh;
 padding-top: 30px;
+min-height: 483px;
 `;
 export const ForecastCard = styled.div`
 padding-top: 15px;
@@ -18,7 +20,7 @@ display: flex;
 justify-content: start;
 align-items: center;
 flex-direction: column;
-border-radius: 22px;
+border-radius: 0 0 22px 22px;
 
 
 `;
@@ -30,9 +32,10 @@ grid-gap: 6em;
 `;
 
 export const LeftGrid = styled.div`
+z-index:10;
 color: white;
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 flex-direction: column;
 align-items: center;
 text-align: left;
@@ -131,4 +134,15 @@ color: black;
  text-decoration: underline;
  transition: 0.3s ease-in-out;
 }
+`;
+
+export const BeforeWeather = styled.div`
+display: flex;
+justify-content: center;
+align-items: flex-start;
+width: 100%;
+height: 100%;
+text-align: center;
+font-size: 28px;
+padding-top: 30px;
 `;

@@ -20,8 +20,6 @@ height: 100%;
 width: 100%;
 background-color: blue;
 opacity: 0.1;
-
-
 `;
 const App = () => {
   const [data, setData] = useState({});
