@@ -4,17 +4,15 @@ import { ForecastContainer, ForecastCard, ForecastGrid, LeftGrid, RightGrid, Cit
 import { GrNext, GrPrevious } from 'react-icons/gr'
 import WeatherData from '../WeatherData/WeatherData';
 import Bookmarks from '../Bookmarks/Bookmarks';
-// import { utcToZonedTime } from 'date-fns-tz'
+import { format} from 'date-fns'
 
 const ForecastWindow = (props) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const { download, data } = props;
   const date = data.time;
-  console.log(date)
-  const warsDate = Date.parse(date)
-  console.log(warsDate)
-  // format(warsDate, 'yyyy-MM-dd HH:mm:ss zzz', { timeZone: 'Europe/Warsaw' })
+  const formatedDate = format(new Date(date), 'PPP p');
+
   if (!data) {
     return null;
   }
@@ -26,7 +24,7 @@ const ForecastWindow = (props) => {
         {data.temp ?
           <>
             <CityName>{data.name}</CityName>
-            <h2>{data.time}</h2>
+            <h2>{formatedDate}</h2>
             <ForecastGrid>
               <LeftGrid>
                 <img className='weather-icon' src={`http://openweathermap.org/img/w/${data.icon}.png`}
