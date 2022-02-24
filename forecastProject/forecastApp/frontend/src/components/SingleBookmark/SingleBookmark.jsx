@@ -2,9 +2,9 @@ import React from 'react'
 import { Styles } from './Styles'
 
 const SingleBookmark = (props) => {
-  const {name} = props;
+  const {name, onClick, active} = props;
   return (
-    <Styles>{name}</Styles>
+    <Styles onClick={onClick} active={active}>{name}</Styles>
   )
 }
 

@@ -26,11 +26,22 @@ const App = () => {
 
   const download = (city = '') => {
     fetch(`http://127.0.0.1:8000/?city=${city}`)
-      .then(respo => respo.json()).then((response) => setData(response));
+      .then(respo => respo.json()).then((response) => {
+
+        const data = JSON.parse(response);
+
+        if(data.length===1) {
+          const { fields } = data[0];
+
+          setData(fields);
+        }
+      });
   }
   useEffect(() => {
     download();
   }, [])
+
+  console.log(data)
 
   return (
     <Styles className="App">

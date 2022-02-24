@@ -16,4 +16,8 @@ cursor: pointer;
   color: white;
   transition: 0.3s ease-in-out;
 }
+  ${props => props.active && `
+    background: #0000ff;
+  `}
+
 `;
