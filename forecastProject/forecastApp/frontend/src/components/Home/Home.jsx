@@ -5,6 +5,9 @@ import { Styles } from './Styles'
 
 const Home = (props) => {
 const {data, download} = props;
+  if (!data) {
+    return null;
+  }
   return (
     <Styles>
       <Navbar data={data} />

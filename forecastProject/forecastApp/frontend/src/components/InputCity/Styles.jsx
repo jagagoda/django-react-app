@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SearchContainer = styled.div`
 position: relative;
 width: ${props => props.isSearching ? 360 : 48}px;
-height: 48px;
+height: 42px;
 background: #e6e6fe;
 box-shadow: 7px 7px 7px black;
 border-radius: ${props => props.isSearching ? '22px' : '50%'};
@@ -15,6 +15,7 @@ transition: all 0.3s ease;
 
 export const SearchInput = styled.input`
 padding-left: 48px;
+padding-bottom: 3px;
 border: none;
 position: absolute;
 top: 0;

@@ -2,13 +2,14 @@ import urllib.request
 import json
 from django.http import JsonResponse
 from django.http import HttpResponse
-from forecastApp.models import Weather
+import datetime
+# from forecastApp.models import Weather
+
 
 def index(request):
 
     if request.method == 'GET':
         city = request.GET.get('city', None)
-
 
         if not city:
             return HttpResponse(status=422)
@@ -19,7 +20,7 @@ def index(request):
         list_of_data = json.loads(source)
 
         data = {
-            "country_code": str(list_of_data['sys']['country']),
+            "country": str(list_of_data['sys']['country']),
             "coordinate": str(list_of_data['coord']['lon']) + ', '
             + str(list_of_data['coord']['lat']),
             "temp": str(list_of_data['main']['temp']) + ' °C',
@@ -29,24 +30,21 @@ def index(request):
             'description': str(list_of_data['weather'][0]['description']),
             'icon': list_of_data['weather'][0]['icon'],
             'name': str(list_of_data['name']),
-            'wind': str(list_of_data['wind']['speed']),
-            'time': str(list_of_data['dt'])
+            'wind': str(list_of_data['wind']['speed']) + ' km/h',
+            'time': datetime.datetime.fromtimestamp(float(list_of_data['dt']))
         }
-
-        temperature = list_of_data['main']['temp'],
-
-        pressure = float(list_of_data['main']['pressure']),
-        humidity = float(list_of_data['main']['humidity']),
-        print(humidity)
-        description= str(list_of_data['weather'][0]['description']),
-        icon= list_of_data['weather'][0]['icon'],
-        name= str(list_of_data['name']),
-        wind= float(list_of_data['wind']['speed']),
-        time= float(list_of_data['dt'])
-        record = Weather.objects.create(temperature=temperature, pressure=pressure, humidity=humidity, icon=icon, description=description, name=name, wind=wind, time=time)
-        record.save()
+        # pressure = float(list_of_data['main']['pressure']),
+        # humidity = float(list_of_data['main']['humidity']),
+        # print(humidity)
+        # description= str(list_of_data['weather'][0]['description']),
+        # icon= list_of_data['weather'][0]['icon'],
+        # name= str(list_of_data['name']),
+        # wind= float(list_of_data['wind']['speed']),
+        # time= float(list_of_data['dt'])
+        # record = Weather.objects.create(temperature=temperature, pressure=pressure, humidity=humidity, icon=icon, description=description, name=name, wind=wind, time=time)
+        # record.save()
 
     else:
         return HttpResponse(status=405)
 
-    return JsonResponse(data);
+    return JsonResponse(data)

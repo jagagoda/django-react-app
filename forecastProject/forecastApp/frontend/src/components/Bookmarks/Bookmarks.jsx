@@ -5,11 +5,10 @@ const Bookmarks = () => {
 
   return (
     <BookmarksContainer>
-      <SingleBookmark name='chart'/>
-      <SingleBookmark name='magic'/>
-      <SingleBookmark name='16-days weather'/>
-      <SingleBookmark name= 'pie recipe'/>
-      <SingleBookmark name='funny dogs'/>
+      <SingleBookmark name='Hourly forecast' />
+      <SingleBookmark name='Daily forecast' />
+      <SingleBookmark name='16-days forecast' />
+      <SingleBookmark name='Weather chart' />
     </BookmarksContainer>
   )
 }

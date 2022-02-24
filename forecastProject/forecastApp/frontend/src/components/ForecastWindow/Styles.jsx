@@ -12,7 +12,7 @@ min-height: 483px;
 `;
 export const ForecastCard = styled.div`
 padding-top: 15px;
-min-height: 450px;
+min-height: 525px;
 width: 850px;
 box-shadow: 10px 10px 10px black;
 background: linear-gradient(45deg, black, transparent);
@@ -28,7 +28,7 @@ export const ForecastGrid = styled.div`
 display: grid;
 padding-top: 2em;
 grid-template-columns: repeat(2, 1fr);
-grid-gap: 6em;
+grid-gap: 2em;
 `;
 
 export const LeftGrid = styled.div`
@@ -88,10 +88,14 @@ justify-content: flex-start;
 `;
 
 export const CityName = styled.h1`
-text-transform: uppercase;
+text-transform: capitalize;
 font-weight: bold;
 font-size: 25px;
 padding-top: 25px;
+span {
+  text-transform: none;
+  font-weight: normal;
+}
 `;
 export const ButtonContainer = styled.div`
 display: flex;
@@ -134,15 +138,4 @@ color: black;
  text-decoration: underline;
  transition: 0.3s ease-in-out;
 }
-`;
-
-export const BeforeWeather = styled.div`
-display: flex;
-justify-content: center;
-align-items: flex-start;
-width: 100%;
-height: 100%;
-text-align: center;
-font-size: 28px;
-padding-top: 30px;
 `;
