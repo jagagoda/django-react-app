@@ -1,4 +1,4 @@
-This is a weather app that uses https://openweathermap.org/ API to display weather data for the city inputted by the user. Django framework is used to retrieve the data from Api. In order to optimize amount of api calls, once downloaded data is stored in local database and updated every three hours.\ 
+This is a weather app that uses https://openweathermap.org/ API to display weather data for the city inputted by the user. Django framework is used to retrieve the data from Api. In order to optimize amount of api calls, once downloaded data is stored in local database and updated every three hours. \ 
 <i>E.g. if city inputted by the user is already in database and NOT older than 3 hours, App is retreving data locally, if NOT performs new api call.</i> \
 App's frontend is developed with React and styled-components.\
 P.S. You will find some tabs in the application where there is no data yet, but they can be used as a placeholeder for future developments using different api calls.
