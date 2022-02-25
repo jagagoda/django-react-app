@@ -6,5 +6,4 @@ display: grid;
 grid-template-columns: repeat(4, 1fr);
 grid-gap: 0;
 width: 100%;
-
 `;

@@ -46,7 +46,6 @@ const InputCity = (props) => {
         onChange={searchWeather}
         placeholder="search for a city..."
       />
-
     </SearchContainer>
   )
 }

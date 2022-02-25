@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, TextElement, DataElement } from './Styles';
+import { Container } from './Styles';
 
 const MainContainer = (props) => {
   const { children } = props;

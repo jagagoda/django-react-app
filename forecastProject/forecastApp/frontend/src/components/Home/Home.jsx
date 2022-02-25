@@ -4,14 +4,15 @@ import Navbar from '../Navbar/Navbar'
 import { Styles } from './Styles'
 
 const Home = (props) => {
-const {data, download} = props;
+
+  const { data, download, bookmark, active } = props;
   if (!data) {
     return null;
   }
   return (
     <Styles>
       <Navbar data={data} />
-      <ForecastWindow data={data} download={download} />
+      <ForecastWindow data={data} download={download} bookmark={bookmark} active={active} />
     </Styles>
   )
 }

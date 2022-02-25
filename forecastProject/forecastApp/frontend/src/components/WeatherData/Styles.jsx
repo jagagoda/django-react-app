@@ -11,7 +11,6 @@ min-width: 200px;
 display: flex;
 justify-content: center;
 flex-direction: row;
-}
 `;
 
 export const GridData = styled.div`
@@ -23,6 +22,7 @@ text-align: right;
 color: white;
 font-weight: bold;
 `;
+
 export const ItemContainer = styled.div`
 display: flex;
 flex-direction: row;

@@ -1,13 +1,12 @@
 import React from 'react'
 import MainContainer from '../MainContainer.jsx/MainContainer'
 
-const Chart = () => {
-
+const LongtermWeather = () => {
   return (
     <MainContainer>
-      There should go forecast chart data
+    There should go 16-days forecast data
     </MainContainer>
   )
 }
 
-export default Chart
+export default LongtermWeather

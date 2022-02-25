@@ -5,7 +5,7 @@ position: relative;
 width: ${props => props.isSearching ? 360 : 48}px;
 height: 42px;
 background: #e6e6fe;
-box-shadow: 7px 7px 7px black;
+box-shadow: 5px 5px 10px 0 rgba(12, 14, 50, 0.8);
 border-radius: ${props => props.isSearching ? '22px' : '50%'};
 display: flex;
 justify-content: space-between;
@@ -61,7 +61,6 @@ outline: none;
 
 &:hover {
   color: grey;
-
 }
 
 `;
@@ -71,5 +70,4 @@ border: none;
 outline: none;
 cursoir: pointer;
 padding: 5px;
-
 `;

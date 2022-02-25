@@ -2,13 +2,11 @@ import styled from "styled-components";
 import MapImg from '../../images/weatherMap2.gif'
 
 export const Container = styled.div`
-
-`;
-
-export const TextElement = styled.h1`
-font-size: 24px;
-padding-top: 24px;
-padding-bottom: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
 
 `;
 
